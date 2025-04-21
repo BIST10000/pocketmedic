@@ -1,0 +1,191 @@
+/* Общие стили */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e8f5f9; /* Светло-голубой фон */
+    margin: 0;
+    padding: 20px;
+    color: #333;
+    line-height: 1.6;
+    background-image: repeating-linear-gradient(
+        45deg,
+        rgba(76, 181, 245, 0.1), /* Полупрозрачный голубой крест */
+        rgba(76, 181, 245, 0.1) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+    background-size: 20px 20px; /* Размер сетки */
+}
+
+h1 {
+    text-align: center;
+    color: #1e3a5f; /* Темно-синий для заголовков */
+    font-size: 2rem;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #4cb5f5; /* Ярко-голубая полоска */
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #ffffff; /* Чистый белый фон для карточки */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Для фона внутри контейнера */
+    z-index: 1; /* Чтобы контент был поверх фона */
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: repeating-linear-gradient(
+        45deg,
+        rgba(76, 181, 245, 0.05), /* Очень слабый голубой крест */
+        rgba(76, 181, 245, 0.05) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+    background-size: 20px 20px; /* Размер сетки */
+    z-index: -1; /* Фон за содержимым */
+    opacity: 0.5; /* Полупрозрачность */
+    border-radius: 12px; /* Скругление углов */
+}
+
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.injury {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 12px;
+    border: 1px solid #c8e6f3; /* Бледно-голубая граница */
+    border-radius: 8px;
+    background-color: #f0f9ff; /* Очень светлый голубой фон */
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.injury.active {
+    background-color: #d1eaf5; /* Светло-голубой при активации */
+    border-color: #4cb5f5; /* Ярко-голубая граница */
+    box-shadow: 0 4px 8px rgba(76, 181, 245, 0.2);
+}
+
+.injury:hover {
+    transform: scale(1.02);
+}
+
+button {
+    padding: 12px 20px;
+    background-color: #4cb5f5; /* Ярко-голубая кнопка */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #70c7f7; /* Светлее при наведении */
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.instructions {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f0f9ff; /* Светло-голубой фон для инструкций */
+    border: 1px solid #c8e6f3; /* Бледно-голубая граница */
+    border-radius: 8px;
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.instructions p {
+    margin: 8px 0;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+table {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+table th,
+table td {
+    border: 1px solid #c8e6f3; /* Бледно-голубая граница */
+    padding: 10px;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+table th {
+    background-color: #e8f5f9; /* Светло-голубой фон для заголовков */
+    color: #333;
+    font-weight: 600;
+}
+
+table tr:nth-child(even) {
+    background-color: #f0f9ff; /* Альтернативный фон */
+}
+
+table tr:hover {
+    background-color: #d1eaf5; /* Подсветка при наведении */
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+
+    table th,
+    table td {
+        padding: 8px;
+        font-size: 0.85rem;
+    }
+}
